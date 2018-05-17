@@ -1,10 +1,10 @@
 <html>
 <head>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.7.2/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         $(function(){
-			window.webkitNotifications.requestPermission();
+			Notification.requestPermission();
 			var  user = prompt('你的名字是？','匿名');
 			var a=1;
 			var canvas=$('#pad');
@@ -36,11 +36,11 @@
 					else if(e.type=='chat')
 					{
 						$('#text').append('<li>'+e.name+':'+e.text+'</li>');
-						window.webkitNotifications.requestPermission();
+						Notification.requestPermission();
 						
 						if(window.webkitNotifications){
 						if (window.webkitNotifications.checkPermission()>0) {
-							window.webkitNotifications.requestPermission();
+							Notification.requestPermission();
 							console.log('啦');
 						}
 						else{
@@ -58,7 +58,7 @@
                 });
             });
 			$('.allpad').mousedown(function(e){
-				window.webkitNotifications.requestPermission();
+				Notification.requestPermission();
 				$('#tool').hide();
 				var canvas=$('#pad');
 				var con=canvas.get(0).getContext("2d");
